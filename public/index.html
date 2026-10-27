@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraStore | CodeAlpha E-Commerce</title>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-content">
+      <span><i class="fa-solid fa-bolt"></i> Flash Sale: Use code <strong>ALPHA10</strong> for 10% OFF all electronics!</span>
+      <div class="top-links">
+        <a href="#orders" id="myOrdersBtn"><i class="fa-solid fa-clock-rotate-left"></i> My Orders</a>
+        <span class="divider">|</span>
+        <span id="userStatusGreeting">Welcome, Guest</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">
+        <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+        <span>Aura<strong>Store</strong></span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search gadgets, headphones, peripherals...">
+        <button id="clearSearchBtn" class="clear-btn" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button id="authBtn" class="btn btn-outline">
+          <i class="fa-regular fa-user"></i>
+          <span id="authBtnText">Sign In</span>
+        </button>
+
+        <button id="cartBtn" class="btn btn-cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-label">Cart</span>
+          <span id="cartBadge" class="badge">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-banner">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="pill-badge"><i class="fa-solid fa-sparkles"></i> CodeAlpha Internship Showcase</span>
+        <h1>Engineered for Performance. Crafted for Style.</h1>
+        <p>Explore our curated selection of flagship electronics, audiophile gear, and productivity peripherals with fast, simulated checkout.</p>
+        <div class="hero-buttons">
+          <a href="#catalog" class="btn btn-primary"><i class="fa-solid fa-arrow-down"></i> Explore Products</a>
+          <button id="demoOrderBtn" class="btn btn-secondary"><i class="fa-solid fa-bag-shopping"></i> View Past Demo Orders</button>
+        </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Verified Quality</p>
+        </div>
+        <div class="stat-item">
+          <h4>24/7</h4>
+          <p>Express Dispatch</p>
+        </div>
+        <div class="stat-item">
+          <h4>4.9 ★</h4>
+          <p>Customer Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog Area -->
+  <main class="container main-content" id="catalog">
+    <div class="catalog-header">
+      <div class="categories-wrapper" id="categoriesContainer">
+        <!-- Rendered dynamically -->
+        <button class="cat-pill active" data-category="All">All Items</button>
+      </div>
+
+      <div class="filter-controls">
+        <label for="sortSelect"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort by:</label>
+        <select id="sortSelect" class="form-select">
+          <option value="default">Featured</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div id="productGrid" class="product-grid">
+      <!-- Skeleton Loading or Products rendered here -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="empty-state" style="display: none;">
+      <i class="fa-regular fa-folder-open empty-icon"></i>
+      <h3>No products found</h3>
+      <p>Try searching for another keyword or clear current filters.</p>
+      <button id="resetFiltersBtn" class="btn btn-primary">Reset Filters</button>
+    </div>
+  </main>
+
+  <!-- Product Details Modal -->
+  <div id="productModal" class="modal-backdrop">
+    <div class="modal modal-lg">
+      <button class="modal-close" id="closeProductModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="product-modal-body" id="productModalContent">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Drawer -->
+  <div id="cartDrawer" class="cart-drawer-overlay">
+    <div class="cart-drawer">
+      <div class="cart-drawer-header">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart (<span id="cartCountHeader">0</span>)</h3>
+        <button id="closeCartBtn" class="close-drawer-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="cart-items-container" id="cartItemsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-drawer-footer" id="cartFooter">
+        <div class="coupon-box">
+          <input type="text" id="couponInput" placeholder="Promo code (try ALPHA10)">
+          <button id="applyCouponBtn" class="btn btn-sm btn-outline">Apply</button>
+        </div>
+        <div id="couponAppliedMsg" class="coupon-tag" style="display:none;">
+          <span>10% Discount Applied!</span>
+          <button id="removeCouponBtn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="price-breakdown">
+          <div class="row">
+            <span>Subtotal</span>
+            <span id="cartSubtotal">$0.00</span>
+          </div>
+          <div class="row" id="discountRow" style="display:none; color: var(--success);">
+            <span>Discount (10%)</span>
+            <span id="cartDiscount">-$0.00</span>
+          </div>
+          <div class="row">
+            <span>Estimated Shipping</span>
+            <span id="cartShipping">Free</span>
+          </div>
+          <div class="row total-row">
+            <span>Estimated Total</span>
+            <span id="cartTotal" class="total-price">$0.00</span>
+          </div>
+        </div>
+
+        <button id="checkoutBtn" class="btn btn-primary btn-block btn-lg">
+          Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal-backdrop">
+    <div class="modal modal-md">
+      <button class="modal-close" id="closeCheckoutModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-shield-halved"></i> Secure Checkout</h3>
+        <p>Complete your delivery and payment simulation</p>
+      </div>
+      <form id="checkoutForm" class="checkout-form">
+        <h4>1. Shipping Address</h4>
+        <div class="form-group">
+          <label for="custName">Full Name *</label>
+          <input type="text" id="custName" required placeholder="John Doe">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="custEmail">Email Address *</label>
+            <input type="email" id="custEmail" required placeholder="john@example.com">
+          </div>
+          <div class="form-group">
+            <label for="custPhone">Phone Number *</label>
+            <input type="tel" id="custPhone" required placeholder="+1 (555) 123-4567">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="custAddress">Street Address *</label>
+          <input type="text" id="custAddress" required placeholder="123 Silicon Blvd, Suite 400">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="custCity">City *</label>
+            <input type="text" id="custCity" required placeholder="San Francisco">
+          </div>
+          <div class="form-group">
+            <label for="custZip">Zip / Postal Code *</label>
+            <input type="text" id="custZip" required placeholder="94107">
+          </div>
+        </div>
+
+        <h4>2. Payment Method</h4>
+        <div class="payment-methods">
+          <label class="payment-option selected">
+            <input type="radio" name="paymentMethod" value="Credit Card" checked>
+            <span><i class="fa-regular fa-credit-card"></i> Card (Simulated)</span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentMethod" value="Cash On Delivery">
+            <span><i class="fa-solid fa-truck-ramp-box"></i> Cash on Delivery</span>
+          </label>
+        </div>
+
+        <div id="cardDetailsGroup" class="card-details-group">
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="4242 •••• •••• 4242" value="4242 •••• •••• 4242">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cardExp">Expiry Date</label>
+              <input type="text" id="cardExp" placeholder="12/28" value="12/28">
+            </div>
+            <div class="form-group">
+              <label for="cardCvc">CVC</label>
+              <input type="password" id="cardCvc" placeholder="•••" value="789">
+            </div>
+          </div>
+        </div>
+
+        <div class="checkout-summary-box">
+          <div class="row">
+            <span>Order Total to Pay:</span>
+            <strong id="checkoutFinalAmount">$0.00</strong>
+          </div>
+        </div>
+
+        <button type="submit" id="placeOrderBtn" class="btn btn-primary btn-block btn-lg">
+          <span id="placeOrderBtnText">Confirm & Place Order</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Success Modal -->
+  <div id="orderSuccessModal" class="modal-backdrop">
+    <div class="modal modal-sm text-center">
+      <div class="success-icon-wrap">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h2>Order Confirmed!</h2>
+      <p class="text-muted">Thank you for your purchase. We have received your order.</p>
+
+      <div class="order-receipt-summary" id="receiptSummary">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="modal-actions mt-4">
+        <button id="viewOrdersFromSuccessBtn" class="btn btn-primary btn-block">View in My Orders</button>
+        <button id="continueShoppingBtn" class="btn btn-outline btn-block mt-2">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orders History Modal -->
+  <div id="ordersModal" class="modal-backdrop">
+    <div class="modal modal-lg">
+      <button class="modal-close" id="closeOrdersModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-clock-rotate-left"></i> My Orders History</h3>
+        <p>Live tracking and records of all simulated transactions</p>
+      </div>
+      <div class="orders-list-body" id="ordersListContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / Register) -->
+  <div id="authModal" class="modal-backdrop">
+    <div class="modal modal-sm">
+      <button class="modal-close" id="closeAuthModal"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-tabs">
+        <button id="tabLogin" class="tab-btn active">Sign In</button>
+        <button id="tabRegister" class="tab-btn">Create Account</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" required placeholder="demo@codealpha.com" value="demo@codealpha.com">
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" required placeholder="password123" value="password123">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Sign In</button>
+        <p class="text-muted text-center mt-3" style="font-size: 0.85rem;">
+          Demo credentials filled by default.
+        </p>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form" style="display:none;">
+        <div class="form-group">
+          <label for="regName">Full Name</label>
+          <input type="text" id="regName" required placeholder="Selva Kailash">
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email Address</label>
+          <input type="email" id="regEmail" required placeholder="selva@example.com">
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password (min 6 chars)</label>
+          <input type="password" id="regPassword" required minlength="6" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Create Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-col">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+          <span>Aura<strong>Store</strong></span>
+        </div>
+        <p>CodeAlpha Full Stack Web Development Internship — Task 1: Simple E-Commerce Store.</p>
+        <p class="dev-tag">Built by <strong>Selva Kailash S</strong></p>
+      </div>
+      <div class="footer-col">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Interactive Shopping Cart & Badge</li>
+          <li>Product Filtering & Full-Text Search</li>
+          <li>Detailed Product Specs Modal</li>
+          <li>Order Processing & Simulated Payments</li>
+          <li>User Auth & Order History Tracking</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tech Stack</h4>
+        <div class="tech-tags">
+          <span>HTML5</span>
+          <span>CSS3 Custom UI</span>
+          <span>JavaScript (ES6+)</span>
+          <span>Node.js</span>
+          <span>Express.js REST APIs</span>
+          <span>Vercel Serverless Ready</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AuraStore. Built for CodeAlpha Internship Task Submission.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Sony WH-1000XM5 Wireless Headphones",
+    "category": "Electronics",
+    "price": 349.99,
+    "originalPrice": 399.99,
+    "rating": 4.8,
+    "reviewsCount": 128,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80",
+    "description": "Industry-leading noise cancellation optimized to you with two processors and 8 microphones. Exceptional sound quality engineered to perfection.",
+    "specs": {
+      "Battery Life": "Up to 30 hours",
+      "Connectivity": "Bluetooth 5.2 / 3.5mm Aux",
+      "Weight": "250g",
+      "Colors": "Silver, Black, Midnight Blue"
+    },
+    "inStock": true,
+    "stock": 15
+  },
+  {
+    "id": "prod-2",
+    "name": "Apple Watch Series 9 GPS 45mm",
+    "category": "Wearables",
+    "price": 429.00,
+    "originalPrice": 459.00,
+    "rating": 4.9,
+    "reviewsCount": 215,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80",
+    "description": "Powerful sensors for advanced health insights, double tap gesture interaction, and a brighter edge-to-edge Always-On Retina display.",
+    "specs": {
+      "Display": "Always-On OLED",
+      "Water Resistance": "50 meters",
+      "Sensors": "ECG, Blood Oxygen, Temp",
+      "Battery": "18 hours"
+    },
+    "inStock": true,
+    "stock": 8
+  },
+  {
+    "id": "prod-3",
+    "name": "Keychron Q1 Pro Mechanical Keyboard",
+    "category": "Peripherals",
+    "price": 199.50,
+    "originalPrice": 220.00,
+    "rating": 4.7,
+    "reviewsCount": 94,
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=600&auto=format&fit=crop&q=80",
+    "description": "Custom mechanical keyboard with full aluminum CNC machined body, QMK/VIA support, and wireless Bluetooth 5.1 capability.",
+    "specs": {
+      "Switches": "Gateron Jupiter Red / Brown",
+      "Connectivity": "Type-C & Bluetooth",
+      "Hot-Swappable": "Yes",
+      "Layout": "75% Compact"
+    },
+    "inStock": true,
+    "stock": 12
+  },
+  {
+    "id": "prod-4",
+    "name": "Sony Alpha 7 IV Mirrorless Camera",
+    "category": "Electronics",
+    "price": 2498.00,
+    "originalPrice": 2699.00,
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&auto=format&fit=crop&q=80",
+    "description": "Full-frame 33MP Exmor R back-illuminated CMOS sensor. 4K 60p 10-bit 4:2:2 recording with real-time Eye AF for humans, animals, and birds.",
+    "specs": {
+      "Sensor": "33MP Full-Frame CMOS",
+      "Video": "4K 60p 10-bit",
+      "Mount": "Sony E-mount",
+      "Stabilization": "5-axis IBIS"
+    },
+    "inStock": true,
+    "stock": 5
+  },
+  {
+    "id": "prod-5",
+    "name": "Logitech MX Master 3S Wireless Mouse",
+    "category": "Peripherals",
+    "price": 99.99,
+    "originalPrice": 109.99,
+    "rating": 4.8,
+    "reviewsCount": 310,
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=600&auto=format&fit=crop&q=80",
+    "description": "Quiet Clicks feel satisfying without disturbing your flow. 8K DPI track-on-glass optical sensor and MagSpeed electromagnetic scrolling.",
+    "specs": {
+      "DPI": "200 - 8000 DPI",
+      "Battery Life": "70 days on full charge",
+      "Weight": "141g",
+      "Multi-Device": "Pair up to 3 devices"
+    },
+    "inStock": true,
+    "stock": 25
+  },
+  {
+    "id": "prod-6",
+    "name": "Bose SoundLink Flex Bluetooth Speaker",
+    "category": "Audio",
+    "price": 149.00,
+    "originalPrice": 169.00,
+    "rating": 4.6,
+    "reviewsCount": 142,
+    "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80",
+    "description": "Waterproof & dustproof portable outdoor speaker (IP67) featuring PositionIQ technology that automatically detects orientation to optimize audio.",
+    "specs": {
+      "Waterproof Rating": "IP67 (Floating)",
+      "Battery": "Up to 12 hours",
+      "Charging": "USB-C",
+      "Bluetooth": "4.2 (30 ft range)"
+    },
+    "inStock": true,
+    "stock": 19
+  },
+  {
+    "id": "prod-7",
+    "name": "Minimalist Ceramic Coffee Mug Set",
+    "category": "Home & Lifestyle",
+    "price": 38.00,
+    "originalPrice": 45.00,
+    "rating": 4.5,
+    "reviewsCount": 58,
+    "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80",
+    "description": "Handcrafted matte finish ceramic mugs designed for everyday warmth. Microwave and dishwasher safe with ergonomic grip.",
+    "specs": {
+      "Capacity": "350 ml each",
+      "Quantity": "Set of 2",
+      "Material": "Stoneware Ceramic",
+      "Care": "Dishwasher safe"
+    },
+    "inStock": true,
+    "stock": 30
+  },
+  {
+    "id": "prod-8",
+    "name": "Canvas Travel Backpack 28L",
+    "category": "Accessories",
+    "price": 79.99,
+    "originalPrice": 99.00,
+    "rating": 4.7,
+    "reviewsCount": 86,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80",
+    "description": "Water-resistant waxed vintage canvas backpack with padded 16-inch laptop compartment, hidden passport pocket, and breathable back padding.",
+    "specs": {
+      "Capacity": "28 Liters",
+      "Laptop Fit": "Up to 16-inch MacBook Pro",
+      "Material": "Waxed Canvas & Genuine Leather",
+      "Weight": "1.1 kg"
+    },
+    "inStock": true,
+    "stock": 14
+  }
+]
